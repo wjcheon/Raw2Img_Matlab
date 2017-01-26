@@ -9,14 +9,14 @@ clear
 close all
 
 %%
-
+addpath('CToptm')
 % FilenameOfRaws = '1';
-FilenameOfRaws = 'FastCT_10e9_70keV_360_327';
+FilenameOfRaws = 'benchmarkFastCT_full_1mm_10e8_000'
 FilenameOfRaws = [FilenameOfRaws, '.dat'];
 % row = 1536;
 % col = 1920;
-row = 153;
-col = 192;
+row = 576;
+col = 576;
 
 %%
 
@@ -30,13 +30,15 @@ Z_inverted = abs(Z - max(Z(:))) +1;
 Z_inverted_rotated = imrotate(Z_inverted,270);
 % Z_inverted_rotated_min = min(Z_inverted_rotated(:));
 % Z_inverted_rotated_max = max(Z_inverted_rotated(:));
-Z_inverted_rotated_min = 1.0*10^7;
+Z_inverted_rotated_min = 1.0*10^9;
 Z_inverted_rotated_max = 1.1*10^9;
 
-figure, imshow(Z,[])
-figure, imshow(Z_norm,[])
-figure, imshow(Z,[1.0*10^9  1.2*10^9])
-figure, imshow(Z_inverted_rotated,[Z_inverted_rotated_min Z_inverted_rotated_max])
+imtool(Z)
 
+% figure, imshow(Z,[])
+% figure, imshow(Z_norm,[])
+% figure, imshow(Z,[1.0*10^9  1.2*10^9])
+% figure, imshow(Z_inverted_rotated,[Z_inverted_rotated_min Z_inverted_rotated_max])
+% 
 %%
 
